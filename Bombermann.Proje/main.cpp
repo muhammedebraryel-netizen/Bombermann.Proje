@@ -8,7 +8,6 @@
 
 int main()
 {
-    printf("Hello bomberman");
 
     return 0;
-}   
+}
