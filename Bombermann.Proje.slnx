@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Bombermann.Proje/Bombermann.Proje.vcxproj" Id="0be1d8ea-bbe5-4d5f-a21b-2c9a71024557" />
+</Solution>
