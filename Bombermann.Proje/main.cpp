@@ -56,10 +56,36 @@ int main() {
         }
 
         // hareket şekli
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) oyuncuKonum.y -= hiz;
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) oyuncuKonum.y += hiz;
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) oyuncuKonum.x -= hiz;
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) oyuncuKonum.x += hiz;
+        // yeni konum
+        sf::Vector2f yeniKonum = oyuncuKonum;
+
+        // hareket
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+            yeniKonum.y -= hiz;
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+            yeniKonum.y += hiz;
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+            yeniKonum.x -= hiz;
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+            yeniKonum.x += hiz;
+
+        // oyuncunun bulunduğu kareyi hesapla
+        int sutun = yeniKonum.x / kare_boyutu;
+        int satir = yeniKonum.y / kare_boyutu;
+
+        // harita sınırı kontrolü
+        if (satir >= 0 && satir < satir_sayisi &&
+            sutun >= 0 && sutun < sutun_sayisi)
+        {
+            // sadece boş karede hareket etsin
+            if (harita[satir][sutun] == BOS)
+            {
+                oyuncuKonum = yeniKonum;
+            }
+        }
 
         oyuncu.setPosition(oyuncuKonum);
 
